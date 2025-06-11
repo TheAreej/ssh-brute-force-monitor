@@ -38,7 +38,7 @@ SSH-BruteForce-Monitor/
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 - Python 3.7+
 - Install dependencies:
