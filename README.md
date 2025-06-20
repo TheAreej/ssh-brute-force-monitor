@@ -1,65 +1,72 @@
+ممتاز، الـ `README.md` السابق منظّم وواضح جدًا. وبما أنك أرسلت لي هذا، يبدو أنك ترغب بمراجعته أو تعديله بما يتناسب مع مشروعك الحالي.
+
+إليك نسخة محسّنة قليلًا من نفس النص مع بعض التعديلات اللغوية الطفيفة لتكون أكثر احترافية، ودون تغيير الهيكل العام:
+
+---
+
 ```markdown
 # SSH Brute Force Monitor
 
-A modular Python-based tool to monitor SSH logs, detect brute force attacks, send email alerts, and visualize failed login attempts. Designed to help blue teamers detect and respond to suspicious SSH activity in real-time.
+A modular Python-based tool to monitor SSH logs, detect brute-force attacks, send email alerts, and visualize failed login attempts. Designed to help blue teamers detect and respond to suspicious SSH activity in real-time.
 
 ---
 
-##  Features
+## Features
 
-- Monitors SSH logs for failed login attempts.
-- Detects brute force attacks using a configurable threshold.
-- Sends real-time email alerts.
-- Checks IP reputation using [AbuseIPDB](https://abuseipdb.com).
+- Monitors SSH logs for failed login attempts
+- Detects brute-force attacks using a configurable threshold
+- Sends real-time email alerts
+- Checks IP reputation using [AbuseIPDB](https://abuseipdb.com)
 - Generates reports and visualizations:
-  - Text report of login activity.
-  - Bar charts showing attempts by IP and by username.
+  - Text-based activity report
+  - Bar charts showing login attempts by IP and by username
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
+
 SSH-BruteForce-Monitor/
 │
-├── logs/                     # Folder to store SSH log files
-├── reports/                  # Output: charts and reports
+├── logs/                     # Folder to store raw SSH log files
+├── reports/                  # Output: reports and visualizations
 │
-├── analyzer.py               # Analyzes parsed data for brute force activity
-├── config.py                 # Email, log directory, and API configuration
-├── main.py                   # Entry point: runs the full monitoring loop
-├── notifier.py               # Sends email alerts
-├── parser.py                 # Parses SSH logs and extracts login attempts
-├── visualizer.py             # Generates charts from data
+├── analyzer.py               # Detects brute-force activity
+├── config.py                 # Contains configuration variables
+├── main.py                   # Main execution script
+├── notifier.py               # Handles email notifications
+├── parser.py                 # Extracts login attempts from logs
+├── visualizer.py             # Generates visual charts
 │
-├── README.md                 # Project documentation (this file)
-└── requirements.txt          # List of required Python packages
-```
+├── README.md                 # Project documentation
+└── requirements.txt          # Python dependencies
+
+````
 
 ---
 
-##  Requirements
+## Requirements
 
-- Python 3.7+
-- Install dependencies:
+- Python 3.7 or higher
+
+Install dependencies with:
 
 ```bash
 pip install -r requirements.txt
-```
+````
 
 ### Python Libraries Used
 
-- `matplotlib`
-- `requests`
-- `smtplib` (built-in)
-- `email` (built-in)
-- `re`, `os`, `time`, `collections` (built-in)
+* `matplotlib`
+* `requests`
+* Built-in: `smtplib`, `email`, `re`, `os`, `time`, `collections`
 
 ---
 
-##  Configuration
+## Configuration
 
-Edit `config.py` to set your credentials and paths:
+Edit `config.py` to match your setup:
 
 ```python
 EMAIL_SENDER = 'youremail@gmail.com'
@@ -74,9 +81,9 @@ LOGS_DIR = './logs'  # or path to /var/log/auth.log
 
 ---
 
-##  How to Run
+## How to Run
 
-1. Add SSH log files to the `logs/` directory.
+1. Place SSH log files in the `logs/` directory.
 2. Run the main script:
 
 ```bash
@@ -84,22 +91,23 @@ python3 main.py
 ```
 
 3. The tool will:
-   - Parse logs
-   - Detect suspicious IPs
-   - Send email alerts
-   - Generate `report.txt` and visual charts in `reports/`
+
+   * Parse SSH logs
+   * Identify suspicious IPs
+   * Send alert emails
+   * Generate `report.txt` and charts in the `reports/` directory
 
 ---
 
-##  Output Files
+## Output Files
 
-- `reports/report.txt` — Summary of login attempts and alerts
-- `reports/ip_attempts_chart.png` — Failed attempts by IP
-- `reports/user_attempts_chart.png` — Failed attempts by username
+* `reports/report.txt` — Summary of login attempts and detected threats
+* `reports/ip_attempts_chart.png` — Failed login attempts by IP
+* `reports/user_attempts_chart.png` — Failed login attempts by username
 
 ---
 
-##  Example Log Format (from `/var/log/auth.log`)
+## Example Log Entry (from `/var/log/auth.log`)
 
 ```
 Failed password for invalid user test from 192.168.1.5 port 22 ssh2
@@ -108,15 +116,17 @@ Failed password for root from 203.0.113.50 port 22 ssh2
 
 ---
 
-##  Future Enhancements
+## Future Enhancements
 
-- Telegram or Discord alert support
-- SQLite database for log history
-- Web dashboard for live monitoring
-- GeoIP location visualization
+* Telegram or Discord alert integration
+* SQLite database support for historical tracking
+* Web-based dashboard for real-time monitoring
+* GeoIP-based visual mapping
 
 ---
 
-##  Author's Note
+## Author's Note
 
-This project is a learning tool for cybersecurity enthusiasts, blue teamers, and SOC analysts. Feedback and contributions are welcome!
+This project serves as a learning and defensive security tool for blue teamers, SOC analysts, and cybersecurity students. Contributions and suggestions are welcome.
+
+
